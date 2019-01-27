@@ -69,7 +69,8 @@ This tutorial assumes a basic knowledge of [React](https://reactjs.org/docs/hell
 <summary>What is this `make` function?</summary>
 <br>
 
-ReasonReact's JSX desugars `<App />` to `App.make(...)`. Therefore, every component **must** define a `make` function.
+ReasonReact's JSX desugars `<App />` to `App.make(...)`. 
+Therefore, every component **must** define a `make` function.
 </details>
 <br>
 
@@ -96,7 +97,7 @@ The `Header` component has two children here, `Logo` and `Title`.
 
 In our case, `<App />` doesn't have children. As you can see, `_children` is not used in `make`. 
 
-However, we **must** define the `children` parameter. We prepend `children` with `_` to tell the compiler that it's unused so it won't trigger warnings.
+However, we **must** define the `children` parameter. We prepend `children` with `_` to tell the compiler that it's unused so it doesn't trigger warnings.
 </details>
 <br>
 
