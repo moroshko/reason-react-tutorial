@@ -95,9 +95,9 @@ let make = _children => {
 ```
 </summary>
 
-In this particular example it might not matter much. 
+Although it will compile, **it's not a good idea!**
 
-But, in general **you don't want to do this.** Otherwise, you'll be creating a brand new component every time the `make` function is called.
+Inlining this way means that you'll be creating a brand new component every time the `make` function is called.
 </details>
 
 <details>
