@@ -71,7 +71,7 @@ This tutorial assumes a basic knowledge of [React](https://reactjs.org/docs/hell
 
 What is this `make` function?</summary>
 
-ReasonReact's JSX desugars `<App />` to `App.make(...)`. 
+ReasonReact's JSX desugars `<App />` to `ReasonReact.element(App.make([||]))`. 
 Therefore, every component **must** define a `make` function.
 </details>
 
