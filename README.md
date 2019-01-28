@@ -32,6 +32,7 @@ ReactDOMRe.renderToElementWithId(<App />, "app");
 
 <details>
 <summary>
+(Click here to reveal details)
 
 This looks familiar to me!</summary>
 
@@ -46,7 +47,7 @@ Note that `index.html` contains:
 ```
 </details>
 
-Let's see what our `<App />` does
+Let's see what our `<App />` does:
 
 ```reason
 let component = ReasonReact.statelessComponent("App");
