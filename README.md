@@ -31,10 +31,11 @@ ReactDOMRe.renderToElementWithId(<App />, "app");
 ```
 
 <details>
-<summary>This looks familiar to me!</summary>
-<br>
+<summary>
 
-Yep, it's very similar to how React renders the `App` component to a DOM element with `id="app"`: 
+This looks familiar to me!</summary>
+
+Yep, it's very similar to how ReactJS renders the `App` component to a DOM element with `id="app"`: 
 
 ```javascript
 ReactDOM.render(<App />, document.getElementById('app'))
@@ -44,7 +45,6 @@ Note that `index.html` contains:
 <div id="app"></div>
 ```
 </details>
-<br>
 
 Let's see what our `<App />` does
 
@@ -58,61 +58,78 @@ let make = _children => {
 ```
 
 <details>
-<summary>I don't know what a stateless component is, and this syntax doesn't make a lot of sense to me :confused:</summary>
-<br>
+<summary>
 
-This tutorial assumes a basic knowledge of [React](https://reactjs.org/docs/hello-world.html) and [Reason syntax](https://reasonml.github.io/docs/en/let-binding). Please follow these links to learn the basics first.
+I don't know what a stateless component is, and this syntax doesn't make a lot of sense to me :confused:</summary>
+
+This tutorial assumes a basic knowledge of [React](https://reactjs.org/docs/hello-world.html) and [Reason syntax](https://reasonml.github.io/docs/en/let-binding). Please follow these links to learn the basics.
 </details>
-<br>
 
 <details>
-<summary>What is this `make` function?</summary>
-<br>
+<summary>
+
+What is this `make` function?</summary>
 
 ReasonReact's JSX desugars `<App />` to `App.make(...)`. 
 Therefore, every component **must** define a `make` function.
 </details>
-<br>
 
 <details>
-<summary>What is `{ ...component, render: ... }` doing?</summary>
-<br>
+<summary>
 
-You can think of it as extending `React.Component` in React and defining our own `render` function.
+What is `{ ...component, render: ... }` doing?</summary>
+
+You can think of it as extending `React.Component` in ReactJS and defining our own `render` function.
 </details>
-<br>
 
 <details>
-<summary>What is `_children`?</summary>
-<br>
+<summary>
 
-In React, components can have children, e.g.:
-```javascript
-<Header>
-  <Logo />
-  <Title>My Todos</Title>
-</Header>
+Can't I inline `let component` like this?
+```reason
+let make = _children => {
+  ...(ReasonReact.statelessComponent("App")),
+  render: ...
+};
 ```
-The `Header` component has two children here, `Logo` and `Title`.
+</summary>
 
-In our case, `<App />` doesn't have children. As you can see, `_children` is not used in `make`. 
+In this particular example it might not matter much. 
 
-However, we **must** define the `children` parameter. We prepend `children` with `_` to tell the compiler that it's unused so it doesn't trigger warnings.
+But, in general **you don't want to do this.** Otherwise, you'll be creating a brand new component every time the `make` function is called.
 </details>
-<br>
 
 <details>
-<summary>What is `_self`?</summary>
-<br>
+<summary>
+
+What is `_children`?</summary>
+
+In our case, `<App />` is called without children. But, if we had, for example:
+```javascript
+<App>
+  <Header />
+  <Content />
+</App>
+```
+then `_children` would be an array of length 2.
+
+As you can see, `_children` is not used in `make`. However, we **must** define the `children` parameter. We prepend `children` with `_` to tell the compiler that it's unused so it doesn't trigger warnings.
+</details>
+
+
+<details>
+<summary>
+
+What is `_self`?</summary>
 
 `self` gives us access to lots of useful things like state, lifecycle hooks, etc.
 We don't use any of these yet, so we prepend it with `_`.
 </details>
-<br>
 
 <details>
-<summary>Why do we call `ReasonReact.string`. It's really verbose compared to React. I don't like it.</summary>
-<br>
+<summary>
+
+Why do we call `ReasonReact.string`. It's really verbose compared to React. I don't like it.</summary>
 
 This is because of the **strict type system** Reason has.
 
@@ -123,5 +140,4 @@ In ReasonReact, children must be of type `ReasonReact.reactElement`, so we must 
 
 which all return a `ReasonReact.reactElement`.
 </details>
-<br>
 
