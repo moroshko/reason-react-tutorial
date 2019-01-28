@@ -4,6 +4,68 @@
 <head>
   <meta charset="UTF-8">
   <title>ReasonReact Tutorial</title>
+  <style>
+    body {
+      margin: 0;
+      font-size: 16px;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background-color: hsl(214, 15%, 91%);
+    }
+
+    .container {
+      width: 360px;
+      height: 100vh;
+      margin: 0 auto;
+      background-color: hsl(5, 100%, 100%);
+    }
+
+    .header {
+      margin: 0;
+      padding: 32px;
+      background-color: hsl(5, 68%, 55%);
+      color: #fff;
+      font-size: 26px;
+      letter-spacing: 0.05em;
+    }
+
+    .content {
+      padding: 0 32px;
+    }
+
+    .question {
+      margin: 32px 0;
+    }
+
+    .answersContainer {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .answerButton {
+      font-size: 20px;
+      background: none;
+      text-align: left;
+      padding: 8px 16px;
+      margin-bottom: 16px;
+      cursor: pointer;
+      border: 1px solid hsl(211, 13%, 65%);
+      box-shadow:
+        0 3px 6px hsla(0, 0%, 0%, 0.15),
+        0 2px 4px hsla(0, 0%, 0%, 0.12);
+    }
+
+    .answerButton:last-child {
+      margin-bottom: 0;
+    }
+
+    .answerButton:focus {
+      outline: 0;
+    }
+
+    .answerButton:active {
+      box-shadow: none;
+    }
+  </style>
 </head>
 
 <body>
